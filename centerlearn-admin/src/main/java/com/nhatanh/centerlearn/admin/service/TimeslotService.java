@@ -66,10 +66,10 @@ public class TimeslotService {
 
     public PaginationModel<TimeslotModel> getAllTimeSlot(int page, int size) {
         long totalPage = (long) Math.ceil((double) this.timeslotRepository.count() / size);
-        List<TimeslotModel> models = newArrayList(this.timeslotRepository.getAllTimeslot(Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         if (page > totalPage) {
             throw new ResourceNotFoundException("page", "invalid");
         }
+        List<TimeslotModel> models = newArrayList(this.timeslotRepository.getAllTimeslot(Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         return this.modelToModelConverter.toTimeslotModelPagination(models, totalPage, page);
     }
 }

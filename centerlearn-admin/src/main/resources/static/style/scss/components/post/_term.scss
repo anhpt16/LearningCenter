@@ -542,6 +542,17 @@
         }
     }
 }
+@keyframes backgroundFadeIn {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+
 
 // SCSS for Pagination
 .web-pagination {
@@ -637,5 +648,18 @@
         color: $primary-hover-color-light;
     }
 }
+.add-btn {
+    color: $button-add;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: $text-size-small;
+    transition: color 0.2s ease;
+    &:hover {
+        color: $button-add-hover;
+    }
+}
 
-
+.invalid {
+    border: 1px solid $delete-color !important;
+}

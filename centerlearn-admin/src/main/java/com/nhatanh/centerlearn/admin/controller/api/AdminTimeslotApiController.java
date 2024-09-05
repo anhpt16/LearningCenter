@@ -13,6 +13,7 @@ import com.tvd12.ezyhttp.core.response.ResponseEntity;
 import com.tvd12.ezyhttp.server.core.annotation.*;
 import lombok.AllArgsConstructor;
 
+@Authenticated
 @Api
 @Controller("/api/v1/timeslots")
 @AllArgsConstructor
@@ -22,7 +23,7 @@ public class AdminTimeslotApiController {
     private final TimeslotService timeslotService;
     private final AdminRequestToModelConverter requestToModelConverter;
 
-    @DoPost
+    @DoPost("/")
     public ResponseEntity addTimeslot(
         @RequestBody SaveTimeslotRequest request
     ) {

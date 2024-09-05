@@ -74,10 +74,10 @@ public class TermService {
 
     public PaginationModel<TermModel> getAllTermPagination(int page, int size) {
         long totalPage = (long) Math.ceil((double) this.termRepository.count() / size);
-        List<TermModel> termModels = newArrayList(this.termRepository.findAllTerms(Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         if (page > totalPage) {
             throw new ResourceNotFoundException("page", "invalid");
         }
+        List<TermModel> termModels = newArrayList(this.termRepository.findAllTerms(Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         return this.modelToModelConverter.toTermModelPagination(termModels, totalPage, page);
     }
 
@@ -91,10 +91,10 @@ public class TermService {
 
     public PaginationModel<TermModel> getTermsByTermTypePagination(String termType, int page, int size) {
         long totalPage = (long) Math.ceil((double) this.termRepository.countByTermType(termType) / size);
-        List<TermModel> termModels = newArrayList(this.termRepository.findByTermType(termType, Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         if (page > totalPage) {
             throw new ResourceNotFoundException("page", "invalid");
         }
+        List<TermModel> termModels = newArrayList(this.termRepository.findByTermType(termType, Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         return this.modelToModelConverter.toTermModelPagination(termModels, totalPage, page);
     }
 

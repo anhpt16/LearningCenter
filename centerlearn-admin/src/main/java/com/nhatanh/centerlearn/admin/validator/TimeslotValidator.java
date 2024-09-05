@@ -5,6 +5,7 @@ import com.nhatanh.centerlearn.admin.request.SaveTimeslotRequest;
 import com.nhatanh.centerlearn.admin.request.UpdateTimeslotRequest;
 import com.nhatanh.centerlearn.admin.service.TimeslotService;
 import com.tvd12.ezyfox.bean.annotation.EzySingleton;
+import com.tvd12.ezyhttp.core.exception.HttpBadRequestException;
 import lombok.AllArgsConstructor;
 
 import java.util.HashMap;
@@ -28,6 +29,9 @@ public class TimeslotValidator {
         if (formValidator.isNull(request.getPeriod())) {
             errors.put("Period", "Null");
         }
+        if (errors.size() > 0) {
+            throw new HttpBadRequestException(errors);
+        }
     }
 
     public void validate(long id, UpdateTimeslotRequest request) {
@@ -46,6 +50,8 @@ public class TimeslotValidator {
         if (timeslotService.getTimeslotById(id) == null) {
             errors.put("Timeslot", "invalid");
         }
-
+        if (errors.size() > 0) {
+            throw new HttpBadRequestException(errors);
+        }
     }
 }

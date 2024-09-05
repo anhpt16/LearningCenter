@@ -440,6 +440,7 @@
             queryString += "&id=" + selectedTerm;
             queryString += "&page=" + page;
             queryString += "&size=" + size;
+            console.log(typeof(page));
             $.ajax({
                 url: '/api/v1/rooms/by-term-id?lang=vi' + queryString,
                 type: 'GET',
@@ -500,7 +501,6 @@
             .delay(1500)
             .fadeOut(300);
         }
-
         // Show notification error
         function showErrorNotification(title, message) {
             errorNoticeTitle.text(title);

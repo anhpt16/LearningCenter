@@ -64,19 +64,19 @@ public class RoomService {
 
     public PaginationModel<RoomModel> getRoomsByTermId(long id, int page, int size) {
         long totalPage = (long) Math.ceil((double) this.roomRepository.countByTermId(id) / size);
-        List<RoomModel> roomModels = newArrayList(this.roomRepository.findByTermId(id, Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         if (page > totalPage) {
             throw new ResourceNotFoundException("page", "invalid");
         }
+        List<RoomModel> roomModels = newArrayList(this.roomRepository.findByTermId(id, Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         return this.modelToModelConverter.toRoomModelPagination(roomModels, totalPage, page);
     }
 
     public PaginationModel<RoomModel> getAllRoomPagination(int page, int size) {
         long totalPage = (long) Math.ceil((double) this.roomRepository.count() / size);
-        List<RoomModel> roomModels = newArrayList(this.roomRepository.findAllRoom(Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         if (page > totalPage) {
             throw new ResourceNotFoundException("page", "invalid");
         }
+        List<RoomModel> roomModels = newArrayList(this.roomRepository.findAllRoom(Next.fromPageSize(page, size)), entityToModelConverter::toModel);
         return this.modelToModelConverter.toRoomModelPagination(roomModels, totalPage, page);
     }
 

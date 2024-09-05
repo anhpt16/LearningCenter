@@ -43,7 +43,7 @@ public class AdminPostApiController {
         return response;
     }
 
-    @DoPost
+    @DoPost("/")
     public ResponseEntity postTerm(
         @RequestBody SaveTermRequest termRequest
     ) {

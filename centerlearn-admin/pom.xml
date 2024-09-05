@@ -17,5 +17,10 @@
             <artifactId>centerlearn-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.nhatanh</groupId>
+            <artifactId>centerlearn-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>

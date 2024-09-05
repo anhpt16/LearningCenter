@@ -27,7 +27,7 @@ public class AdminRoomApiController {
     private final RoomService roomService;
     private final FormValidator formValidator;
 
-    @DoPost
+    @DoPost("/")
     public ResponseEntity addRoom(
         @RequestBody SaveRoomRequest request
     ) {

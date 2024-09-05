@@ -32,7 +32,7 @@ public class Account {
     @Column(
         name = "avatar_image_id"
     )
-    private String avatarImageId;
+    private long avatarImageId;
     private String status;
     @Column(
         name = "creator_id"

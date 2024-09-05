@@ -1,5 +1,6 @@
 package com.nhatanh.centerlearn.admin.converter;
 
+import com.nhatanh.centerlearn.admin.model.AccountRoleModel;
 import com.nhatanh.centerlearn.admin.model.RoomModel;
 import com.nhatanh.centerlearn.admin.model.TermModel;
 import com.nhatanh.centerlearn.admin.model.TimeslotModel;
@@ -44,6 +45,13 @@ public class AdminModelToModelConverter {
             .items(timeslotModels)
             .totalPage(totalPage)
             .currentPage(currentPage)
+            .build();
+    }
+
+    public AccountRoleModel toAccountRoleModelConverter(long accountId, long roleId) {
+        return AccountRoleModel.builder()
+            .accountId(accountId)
+            .roleId(roleId)
             .build();
     }
 }

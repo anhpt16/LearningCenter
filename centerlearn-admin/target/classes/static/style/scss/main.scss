@@ -16,8 +16,12 @@
 @import "components/post/draft";
 @import "components/room/room";
 @import "components/room/room-timeslot";
+@import "components/account/role";
+@import "components/account/permission";
+@import "components/account/user";
 
 @import "pages/dashboard";
 @import "pages/post-term";
+@import "pages/login";
 
 @import "global/responsive";

@@ -1,13 +1,9 @@
 package com.nhatanh.centerlearn.admin.converter;
 
 
-import com.nhatanh.centerlearn.admin.model.RoomModel;
-import com.nhatanh.centerlearn.admin.model.TermModel;
-import com.nhatanh.centerlearn.admin.model.TimeslotModel;
-import com.nhatanh.centerlearn.admin.response.AdminRoomBaseResponse;
-import com.nhatanh.centerlearn.admin.response.AdminRoomResponse;
-import com.nhatanh.centerlearn.admin.response.AdminTermResponse;
-import com.nhatanh.centerlearn.admin.response.AdminTimeslotResponse;
+import com.nhatanh.centerlearn.admin.model.*;
+import com.nhatanh.centerlearn.admin.response.*;
+import com.nhatanh.centerlearn.common.enums.AccountStatus;
 import com.nhatanh.centerlearn.common.enums.RoomStatus;
 import com.nhatanh.centerlearn.common.enums.TimeslotStatus;
 import com.tvd12.ezyfox.bean.annotation.EzySingleton;
@@ -58,6 +54,36 @@ public class AdminModelToResponseConverter {
             .createdAt(model.getCreatedAt())
             .updatedAt(model.getUpdatedAt())
             .description(model.getDescription())
+            .build();
+    }
+
+    public AdminRoleResponse toRoleResponse(RoleModel model) {
+        return AdminRoleResponse.builder()
+            .id(model.getId())
+            .name(model.getName())
+            .displayName(model.getDisplayName())
+            .createdAt(model.getCreatedAt())
+            .build();
+    }
+
+    public AdminRoleNameResponse toRoleNameResponse(RoleModel roleModel) {
+        return AdminRoleNameResponse.builder()
+            .id(roleModel.getId())
+            .name(roleModel.getName())
+            .build();
+    }
+
+    public AdminAccountResponse toAccountResponse(AccountModel model) {
+        return AdminAccountResponse.builder()
+            .id(model.getId())
+            .username(model.getUsername())
+            .displayName(model.getDisplayName())
+            .email(model.getEmail())
+            .phone(model.getPhone())
+            .status(AccountStatus.fromString(model.getStatus()))
+            .avatarId(model.getAvatarId())
+            .createdAt(model.getCreatedAt())
+            .updatedAt(model.getUpdatedAt())
             .build();
     }
 }
